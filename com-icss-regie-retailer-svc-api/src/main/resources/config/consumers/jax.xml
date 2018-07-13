@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+    profile="jax.consumer"
+    xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                        http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+    <bean id="retailerGateway" class="org.springframework.remoting.jaxws.JaxWsPortProxyFactoryBean">
+        <property name="serviceInterface" value="com.icss.regie.retailer.svc.api.gateways.RetailerGateway"/>
+        <property name="wsdlDocumentUrl" value="http://localhost:8888/RetailerGateway?WSDL"/>
+        <property name="namespaceUri" value="http://example/"/>
+        <property name="serviceName" value="RetailerGateway"/>
+        <property name="portName" value="RetailerGatewayPort"/>
+    </bean>
+</beans>
