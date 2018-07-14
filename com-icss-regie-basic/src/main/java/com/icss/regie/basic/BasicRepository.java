@@ -11,13 +11,11 @@ import java.util.List;
 import java.util.Map;
 import javax.persistence.criteria.CriteriaDelete;
 import javax.persistence.criteria.CriteriaQuery;
-import org.springframework.data.repository.NoRepositoryBean;
 
 /**
  *
  * @author zhangsen
  */
-@NoRepositoryBean
 public interface BasicRepository {
 
     /*

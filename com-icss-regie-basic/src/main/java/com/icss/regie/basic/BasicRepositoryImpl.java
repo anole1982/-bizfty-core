@@ -14,7 +14,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import javax.inject.Named;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -26,7 +25,6 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import javax.persistence.metamodel.EntityType;
-import org.springframework.stereotype.Repository;
 
 /**
  *

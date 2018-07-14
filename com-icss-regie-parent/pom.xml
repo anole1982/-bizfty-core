@@ -9,11 +9,15 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <spring.boot.version>2.1.0.BUILD-SNAPSHOT</spring.boot.version>
     </properties>
     <modules>
         <module>../com-icss-regie-api</module>
         <module>../com-icss-regie-basic</module>
         <module>../com-icss-regie-svc-war</module>
+        <!--        
+        <module>../com-icss-regie-intg-ali</module>
+        -->
         <module>../com-icss-regie-retailer-svc-api</module>
         <module>../com-icss-regie-retailer-svc-impl</module>
         <module>../com-icss-regie-retailer-svc-api-zj</module>
@@ -21,16 +25,15 @@
         <module>../com-icss-regie-retailer-svc-war</module>
         <module>../com-icss-regie-retailer-app-api</module>
         <module>../com-icss-regie-retailer-app-war</module>
+        <module>../com-icss-regie-config</module>
+        <module>../com-icss-regie-eureka</module>
     </modules>
     <profiles> 
         <profile> 
-            <id>ali</id>
+            <id>dev</id>
             <activation>  
                 <activeByDefault>true</activeByDefault>  
             </activation> 
-        </profile> 
-        <profile> 
-            <id>normal</id> 
         </profile>
         <profile>
             <id>hy</id>
@@ -38,8 +41,37 @@
                 <activeByDefault>true</activeByDefault>  
             </activation> 
         </profile>
-    </profiles> 
+        <profile> 
+            <id>ali</id>
+            <activation>  
+                <activeByDefault>true</activeByDefault>  
+            </activation> 
+        </profile>
+        <profile>
+            <id>ali.provider</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>  
+            </activation>
+        </profile>
+        <profile>
+            <id>ali.consumer</id> 
+            <activation>
+                <activeByDefault>ture</activeByDefault>  
+            </activation> 
+        </profile>
+    </profiles>
     <dependencies>
+        <dependency>
+            <groupId>javax.el</groupId>
+            <artifactId>javax.el-api</artifactId>
+            <version>3.0.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.web</groupId>
+            <artifactId>javax.el</artifactId>
+            <version>2.2.6</version>
+        </dependency>
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-api</artifactId>
@@ -59,13 +91,15 @@
             <version>5.0.7.RELEASE</version>
             <scope>provided</scope>
         </dependency>
+        <!--        
         <dependency>
-            <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-jpa</artifactId>
-            <version>2.0.8.RELEASE</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+            <version>${spring.boot.version}</version>
         </dependency>
+        -->
     </dependencies>
-<!--    <dependencyManagement>
+    <!--    <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>com.taobao.pandora</groupId>
@@ -95,7 +129,8 @@
             </plugins>
         </pluginManagement>
     </build>
-<!--    <repositories>
+    <!--    
+    <repositories>
         <repository>
             <id>alimaven</id>
             <name>aliyun maven</name>
@@ -112,5 +147,77 @@
                 <enabled>true</enabled>
             </releases>
         </repository>
-    </repositories>-->
+    </repositories>
+    -->
+    <!--    
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    -->
+    <repositories>
+        <repository>
+            <id>spring-snapshots</id>
+            <name>Spring Snapshots</name>
+            <url>https://repo.spring.io/snapshot</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>apache-snapshots</id>
+            <name>Apache SNAPSHOT Repository</name>
+            <url>https://repository.apache.org/content/groups/snapshots-group/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>spring-snapshots</id>
+            <name>Spring Snapshots</name>
+            <url>https://repo.spring.io/snapshot</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+            <id>apache-snapshots</id>
+            <name>Apache Maven Plugin Snapshots</name>
+            <url>https://repository.apache.org/content/groups/snapshots-group/</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
 </project>

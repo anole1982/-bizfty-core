@@ -9,7 +9,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ImportResource;
 
 @SpringBootApplication
-@ImportResource(locations={"classpath:config/providers-spring.xml"})
+@ImportResource(locations={"classpath:config/providers/ali.xml"})
 @ComponentScan("com.icss.regie.retailer")
 public class RetailerSvcWar extends SpringBootServletInitializer {
 

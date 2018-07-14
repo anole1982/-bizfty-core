@@ -5,9 +5,9 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class JerseyConfig extends ResourceConfig {
-	
-	JerseyConfig(){
-		register(RetailerResource.class);
-	}
-	
+
+    JerseyConfig() {
+        register(RetailerResource.class);
+    }
+
 }

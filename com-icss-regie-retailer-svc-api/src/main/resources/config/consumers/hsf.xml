@@ -42,4 +42,5 @@
         -->
         <!-- [可选] 设置服务的代理模式，一般不用配置。如果要拦截这个 consumer bean，需要配置成 javassist -->
         <!--<property name="proxyStyle" value="jdk" />-->
+    </bean>
 </beans>
