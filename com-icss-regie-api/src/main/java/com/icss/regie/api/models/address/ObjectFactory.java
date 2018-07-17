@@ -35,10 +35,6 @@ public class ObjectFactory {
         return new County();
     }
 
-    public Region createRegion() {
-        return new Region();
-    }
-
     public Town createTown() {
         return new Town();
     }

@@ -32,6 +32,14 @@ public class Address implements Serializable {
     @JoinColumn(name="COUNTY_ID")
     private County county;
     
+    @ManyToOne
+    @JoinColumn(name="TOWN_ID")
+    private Town town;
+    
+    @ManyToOne
+    @JoinColumn(name="VILLAGE_ID")
+    private Village village;
+    
     @Column(name="ADDRESS")
     private String address;
 
