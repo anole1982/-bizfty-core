@@ -14,11 +14,15 @@ import org.springframework.dao.annotation.PersistenceExceptionTranslationPostPro
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-
 @Configuration
 @Order(Ordered.HIGHEST_PRECEDENCE)
 @EnableTransactionManagement(proxyTargetClass = true)
-@EntityScan(basePackages = {"com.icss.regie.retailer.svc.api","com.icss.regie.api"})
+@EntityScan(basePackages = {
+    "com.icss.regie.retailer.svc.api",
+    "com.icss.regie.team.svc.api",
+    "com.icss.regie.api",
+    "com.icss.regie.open.svc.api"
+})
 @EnableJpaRepositories(basePackages = {"com.icss.regie"})
 public class JpaConfig {
 

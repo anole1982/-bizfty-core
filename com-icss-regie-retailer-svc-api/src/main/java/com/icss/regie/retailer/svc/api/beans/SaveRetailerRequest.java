@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  *
- * @author johns
+ * @author 张森
  */
 public class SaveRetailerRequest extends BasicRequest {
     /**

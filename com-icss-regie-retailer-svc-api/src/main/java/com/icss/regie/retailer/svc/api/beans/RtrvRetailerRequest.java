@@ -7,16 +7,19 @@ package com.icss.regie.retailer.svc.api.beans;
 
 import com.icss.regie.api.beans.BasicRequest;
 import com.icss.regie.api.beans.Page;
-import javax.xml.bind.annotation.XmlAccessOrder;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorOrder;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
 
 
 /**
- *
+ * 获取零售户信息
+ * 根据要求返回相关信息
+ * 
+ * 
+ * 基本返回信息
+ * 证照信息
+ * <p>营业执照信息</p>
+ * <p>法人信息</p>
+ * <p>烟草专卖许可证信息</p>
+ * 
  * @author johns
  */
 //@XmlAccessorOrder(XmlAccessOrder.ALPHABETICAL)
@@ -24,7 +27,26 @@ import javax.xml.bind.annotation.XmlType;
 //@XmlType(name ="rtrvRetailerRequest", propOrder = {"name"})
 //@XmlRootElement(name="RtrvRetailerRequest")
 public class RtrvRetailerRequest extends BasicRequest {
-    
+    /**
+     * 实际经营人信息
+     */
+    private boolean realOperator;
+    /**
+     * 实际经营人信息
+     */
+    private boolean vehicles;
+    /**
+     * 仓库信息
+     */
+    private boolean storages;
+    /**
+     * 从业人员
+     */
+    private boolean employees;
+    /**
+     * 从业人员
+     */
+    private boolean labels;
     /**
      * 零售户名称
      */

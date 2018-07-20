@@ -26,12 +26,12 @@ import javax.xml.bind.annotation.XmlType;
 @MappedSuperclass
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "BasicEntity",namespace="http://api.regie.icss.com/models", propOrder = {
-    "createTime",
-    "createUserId",
-    "updateTime",
-    "updateUserId",
-    "status",
-    "version"
+    "recordCreateTime",
+    "recordCreateUserId",
+    "recordUpdateTime",
+    "recordUpdateUserId",
+    "recordStatus",
+    "recordVersion"
 })
 
 public class BasicEntity<E> extends BasicModel<E> implements Serializable, Comparable {
@@ -47,7 +47,7 @@ public class BasicEntity<E> extends BasicModel<E> implements Serializable, Compa
      */
     @Column(name = "RECOND_CREATE_TIME", unique = false, updatable = false, nullable = false, length = 7)
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
-    private Date createTime = new Date();
+    private Date recordCreateTime = new Date();
     /**
      * 创建者
      * <p>
@@ -56,7 +56,7 @@ public class BasicEntity<E> extends BasicModel<E> implements Serializable, Compa
      * 不可为空</p>
      */
     @Column(name = "RECOND_CREATE_USER_ID", updatable = false)
-    private String createUserId;
+    private String recordCreateUserId;
     /**
      * 修改时间
      * <p>
@@ -68,7 +68,7 @@ public class BasicEntity<E> extends BasicModel<E> implements Serializable, Compa
      */
     @Column(name = "RECOND_UPDATE_TIME", unique = false, nullable = false, length = 7)
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
-    private Date updateTime = new Date();
+    private Date recordUpdateTime = new Date();
     /**
      * 更新者
      * <p>
@@ -77,112 +77,112 @@ public class BasicEntity<E> extends BasicModel<E> implements Serializable, Compa
      * 不可为空</p>
      */
     @Column(name = "RECOND_UPDATE_USER_ID", length = 32)
-    private String updateUserId;
+    private String recordUpdateUserId;
     /**
      * 记录存在状态
      */
     @Column(name = "RECODE_STATUS")
-    private String status;
+    private String recordStatus;
     /**
      * 数据版本
      * <p>
      * 用于数据加锁</p>
      */
     @Column(name = "RECODE_VERSION", precision = 19, scale = 0)
-    private Long version = 1l;
+    private Long recordVersion = 1l;
 // <editor-fold defaultstate="collapsed" desc=" Generated Code 属性 GET SET 方法">  
 
     /**
      * @return the createTime
      */
-    public Date getCreateTime() {
-        return createTime;
+    public Date getRecordCreateTime() {
+        return recordCreateTime;
     }
 
     /**
-     * @param createTime the createTime to set
+     * @param recordCreateTime the recordCreateTime to set
      * @return 
      */
-    public E setCreateTime(Date createTime) {
-        this.createTime = createTime;
+    public E setRecordCreateTime(Date recordCreateTime) {
+        this.recordCreateTime = recordCreateTime;
         return (E)this;
     }
 
     /**
      * @return the createUser
      */
-    public String getCreateUserId() {
-        return createUserId;
+    public String getRecordCreateUserId() {
+        return recordCreateUserId;
     }
 
     /**
-     * @param createUserId the createUserId to set
+     * @param recordCreateUserId the recordCreateUserId to set
      * @return 
      */
-    public E setCreateUserId(String createUserId) {
-        this.createUserId = createUserId;
+    public E setRecordCreateUserId(String recordCreateUserId) {
+        this.recordCreateUserId = recordCreateUserId;
         return (E)this;
     }
 
     /**
-     * @return the updateTime
+     * @return the recordUpdateTime
      */
-    public Date getUpdateTime() {
-        return updateTime;
+    public Date getRecordUpdateTime() {
+        return recordUpdateTime;
     }
 
     /**
-     * @param updateTime the updateTime to set
+     * @param recordUpdateTime the recordUpdateTime to set
      * @return 
      */
-    public E setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
+    public E setRecordUpdateTime(Date recordUpdateTime) {
+        this.recordUpdateTime = recordUpdateTime;
         return (E)this;
     }
 
     /**
      * @return the updateUser
      */
-    public String getUpdateUserId() {
-        return updateUserId;
+    public String getRecordUpdateUserId() {
+        return recordUpdateUserId;
     }
 
     /**
-     * @param updateUserId the updateUserId to set
+     * @param recordUpdateUserId the recordUpdateUserId to set
      * @return 
      */
-    public E setUpdateUserId(String updateUserId) {
-        this.updateUserId = updateUserId;
+    public E setRecordUpdateUserId(String recordUpdateUserId) {
+        this.recordUpdateUserId = recordUpdateUserId;
         return (E)this;
     }
 
     /**
      * @return the status
      */
-    public String getStatus() {
-        return status;
+    public String getRecordStatus() {
+        return recordStatus;
     }
 
     /**
-     * @param status the status to set
+     * @param recordStatus the recordStatus to set
      */
-    public E setStatus(String status) {
-        this.status = status;
+    public E setRecordStatus(String recordStatus) {
+        this.recordStatus = recordStatus;
         return (E)this;
     }
 
     /**
-     * @return the version
+     * @return the recordVersion
      */
-    public Long getVersion() {
-        return version;
+    public Long getRecordVersion() {
+        return recordVersion;
     }
 
     /**
-     * @param version the version to set
+     * @param recordVersion the recordVersion to set
      */
-    public E setVersion(Long version) {
-        this.version = version;
+    public E setRecordVersion(Long recordVersion) {
+        this.recordVersion = recordVersion;
         return (E)this;
     }
     // </editor-fold>    

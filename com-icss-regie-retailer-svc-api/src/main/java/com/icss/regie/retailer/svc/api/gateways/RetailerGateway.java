@@ -7,7 +7,6 @@ import com.icss.regie.retailer.svc.api.beans.RtrvRetailerResponse;
 import com.icss.regie.retailer.svc.api.beans.SaveRetailerRequest;
 import com.icss.regie.retailer.svc.api.beans.SaveRetailerResponse;
 import javax.jws.WebMethod;
-import javax.jws.WebResult;
 import javax.jws.WebService;
 import javax.xml.ws.RequestWrapper;
 import javax.xml.ws.ResponseWrapper;

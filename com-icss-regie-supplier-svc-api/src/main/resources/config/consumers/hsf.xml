@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+    profile="ali.consumer"
+    xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                        http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+    <bean id="productGateway" class="com.taobao.hsf.app.spring.util.HSFSpringConsumerBean">
+        <!-- [必选] 设置需要订阅服务的接口名 -->
+        <property name="interfaceName" value="com.icss.regie.supplier.svc.api.gateways.ProductGateway" />
+        <!-- [必选] 设置需要订阅服务的版本号 -->
+        <property name="version" value="1.0.0" />
+        <!-- [必选] 设置需要订阅服务的组别 -->
+        <property name="group" value="HSF" />
+        <!-- [可选] 设置请求超时时间（单位：毫秒）。如果客户端在设置的时间内没有收到服务端响应，则抛出 HSFTimeOutException -->
+        <!-- 若客户端设置了 clientTimeout，则优先级高于服务端设置的 clientTimeout。否则，在服务的远程调用过程中，使用服务端设置的 clientTimeout。-->
+        <property name="clientTimeout" value="3000" />
+        <!-- [可选] 设置服务中某些方法的请求超时时间，优先级高于当前客户端的 clientTimeout -->
+        <!-- 通过设置 MethodSpecial.methodName 指定方法名，通过设置 MethodSpecial.clientTimout 指定当前方法的超时时间 -->
+        <property name="methodSpecials">
+            <list>
+                <bean class="com.taobao.hsf.model.metadata.MethodSpecial">
+                    <property name="methodName" value="sum" />
+                    <property name="clientTimeout" value="2000" />
+                </bean>
+            </list>
+        </property>
+        <!-- [可选] 设置同步等待 ConfigServer 推送地址的时间（单位：毫秒）-->
+        <!-- 从而避免因地址还未推送到就发起服务调用造成的 HSFAddressNotFoundException。-->
+        <!-- 一般建议设置为 5000 毫秒，即可满足推送等待时间。 -->
+        <property name="maxWaitTimeForCsAddress"  value="5000"/>
+        <!-- [可选] 设置需要异步调用的方法列表。List 中的每一个字符串的格式为：name:方法名;type:异步调用类型;listener:监听器 -->
+        <!-- 其中，listener 只对 callback 类型的异步调用生效。type 的类型有：-->
+        <!-- future: 通过 Future 的方式去获取请求执行的结果 -->
+        <!-- callback: 当远程服务的调用完成后，HSF 会使用响应结果回调此处配置的 listener，该 listener 需要实现HSFResponseCallback 接口 -->
+        <!--        
+        <property name="asyncallMethods">
+            <list>
+                <value>name:sayHello;type:callback;listener:com.taobao.hsf.test.service.HelloWorldServiceCallbackHandler</value>
+            </list>
+        </property>
+        -->
+        <!-- [可选] 设置服务的代理模式，一般不用配置。如果要拦截这个 consumer bean，需要配置成 javassist -->
+        <!--<property name="proxyStyle" value="jdk" />-->
+    </bean>
+</beans>

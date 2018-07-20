@@ -39,7 +39,7 @@ public class WebServiceConfig {
     @Bean
     public Endpoint endpoint() {
         EndpointImpl endpoint = new EndpointImpl(bus, new RetailerGatewayImpl());
-        endpoint.publish("/retailer");
+        endpoint.publish("/RetailerGateway");
         return endpoint;
     }
 }
