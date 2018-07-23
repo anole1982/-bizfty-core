@@ -2,6 +2,7 @@ package com.icss.regie.api.beans;
 
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -17,7 +18,7 @@ public class Reason implements Serializable {
     private String code;
     private String descript;
     private String traceCode;
-    private List<Extension> extensions;
+    private List<Extension> extensions = new ArrayList<Extension>();
 
     /**
      * @return the code
@@ -67,11 +68,12 @@ public class Reason implements Serializable {
     public List<Extension> getExtensions() {
         return extensions;
     }
-
-    /**
-     * @param extensions the extensions to set
-     */
-    public void setExtensions(List<Extension> extensions) {
-        this.extensions = extensions;
+    
+    public void addExtension(Extension extension) {
+        this.extensions.add(extension);
+    }
+    
+    public void addExtension(String key,String value) {
+        this.extensions.add(new Extension(key,value));
     }
 }

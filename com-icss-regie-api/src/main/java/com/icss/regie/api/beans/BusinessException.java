@@ -6,6 +6,7 @@
 package com.icss.regie.api.beans;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -29,7 +30,7 @@ public class BusinessException extends RuntimeException implements Serializable 
     private String responseCode ="008";
     @XmlElementWrapper(name = "reasons", nillable = true, required = false)
     @XmlElement(name = "reason")
-    private List<Reason> reasons;
+    private List<Reason> reasons = new ArrayList<Reason>();
 
     public BusinessException() {
         super();
@@ -60,8 +61,7 @@ public class BusinessException extends RuntimeException implements Serializable 
     public List<Reason> getReasons() {
         return reasons;
     }
-
-    public void setReasons(List<Reason> reasons) {
-        this.reasons = reasons;
+    public void addReason(Reason reason){
+        this.reasons.add(reason);
     }
 }

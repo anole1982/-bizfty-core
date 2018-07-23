@@ -13,6 +13,12 @@ public class Extension implements Serializable {
 
     private String key;
     private String value;
+    public Extension(){
+    }
+    public Extension(String key,String value){
+        this.key = key;
+        this.value = value;
+    }
 
     /**
      * @return the key

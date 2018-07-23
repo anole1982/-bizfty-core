@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
  
 @Component("retailerResource")
+
 public class RetailerResourceImpl implements RetailerResource {
      
     Logger logger = LoggerFactory.getLogger(RetailerResourceImpl.class);
